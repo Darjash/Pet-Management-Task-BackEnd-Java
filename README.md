@@ -2,10 +2,10 @@ TASK
 
 TODO:
 *	Create a Spring Boot application.
-*	User is displayed a list of pets that the user has entered (see the provided html).
-*	User can add pets (see the provided html).
+*	User is displayed a list of pets that the user has entered.
+*	User can add pets.
 *	A pet has a name, an identification code, a type (CAT, DOG, etc) and a fur color.
-*	When a new pet is saved, validate all mandatory fields.id
+*	When a new pet is saved, validate all mandatory fields.
 *	Store all input data to database.
 *	Values of select lists have to be populated with data from database.
 
