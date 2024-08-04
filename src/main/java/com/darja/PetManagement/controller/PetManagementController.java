@@ -1,6 +1,5 @@
 package com.darja.PetManagement.controller;
 
-import com.darja.PetManagement.dao.PetDao;
 import com.darja.PetManagement.model.Pet;
 import com.darja.PetManagement.service.PetService;
 import org.springframework.beans.factory.annotation.Autowired;

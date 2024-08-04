@@ -10,5 +10,6 @@ country varchar(50)
 create table users(
 id int AUTO_INCREMENT primary key,
 username varchar(50),
-password varchar(50)
+password varchar(100),
+role varchar(50)
 );
