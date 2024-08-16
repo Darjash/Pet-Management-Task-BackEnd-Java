@@ -12,12 +12,12 @@ TODO:
 
 Optional TODO:
 *	User can edit pets.
-* Log in with one of the created user accounts (registration does not have to be implemented). -in progress
-Create 3 user accounts into the database (username and password). -in progress
-*	User is not allowed to see other user’s pets. -in progress
+* Log in with one of the created user accounts (registration does not have to be implemented). 
+Create user accounts into the database (username and password).
+*	User is not allowed to see other user’s pets. 
 *	User can sort pets by all columns in the table. -in progress
 *	A pet has a country of origin.
-*	Validate form fields both inline and in the back-end. -in progress
+*	Validate form fields both inline and in the back-end. 
 
 
 Technical requirements:

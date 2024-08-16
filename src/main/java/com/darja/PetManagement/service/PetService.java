@@ -1,10 +1,14 @@
 package com.darja.PetManagement.service;
 
 import com.darja.PetManagement.dao.PetDao;
+import com.darja.PetManagement.dao.UserDao;
 import com.darja.PetManagement.model.Pet;
+import com.darja.PetManagement.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -17,8 +21,18 @@ public class PetService {
     @Autowired
     PetDao petDao;
 
+    @Autowired
+    UserDao userDao;
+
+    private User getCurrentUser() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String username = authentication.getName();
+        return userDao.findByUsername(username);
+    }
+
     public ResponseEntity<List<Pet>> getAllPets() {
-        List<Pet> pets = petDao.findAll();
+        User currentUser = getCurrentUser();
+        List<Pet> pets = petDao.findByUserId(currentUser.getId());
         if (pets != null && !pets.isEmpty()) {
             return new ResponseEntity<>(pets, HttpStatus.OK);
         } else {
@@ -31,6 +45,8 @@ public class PetService {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
         try {
+            User currentUser = getCurrentUser();
+            pet.setUser(currentUser);
             Pet savedPet = petDao.save(pet);
             return new ResponseEntity<>(savedPet, HttpStatus.CREATED);
         } catch (Exception e) {
@@ -40,7 +56,8 @@ public class PetService {
     }
 
     public ResponseEntity<Pet> getPet(Integer id) {
-        Optional<Pet> pet = petDao.findById(id);
+        User currentUser = getCurrentUser();
+        Optional<Pet> pet = petDao.findByIdAndUserId(id, currentUser.getId());
         if (pet.isPresent()) {
             return new ResponseEntity<>(pet.get(), HttpStatus.OK);
         } else {
@@ -49,7 +66,8 @@ public class PetService {
     }
 
     public ResponseEntity<Void> deletePet(Integer id) {
-        Optional<Pet> pet = petDao.findById(id);
+        User currentUser = getCurrentUser();
+        Optional<Pet> pet = petDao.findByIdAndUserId(id, currentUser.getId());
         if (pet.isPresent()) {
             petDao.deleteById(id);
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);

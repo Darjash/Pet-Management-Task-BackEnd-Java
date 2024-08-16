@@ -15,4 +15,8 @@ public class Pet {
     private String type;
     private String furColor;
     private String country;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
 }
