@@ -1,0 +1,29 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-users
+      author: Darja
+      changes:
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: username
+                  value: '111'
+              - column:
+                  name: password
+                  value: '$2a$12$kcYm8B3rkC4kDJKSAR.uOuSY4M.fWD.IgCL5llyeZJO9hmwpKZC.S'
+              - column:
+                  name: role
+                  value: 'USER'
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: username
+                  value: '222'
+              - column:
+                  name: password
+                  value: '$2a$12$J.WeLyOdHfAwX/tCbMSMNOpwgbY1LaNPLlhw4g/jetQjOE/F5eQoq'
+              - column:
+                  name: role
+                  value: 'USER'

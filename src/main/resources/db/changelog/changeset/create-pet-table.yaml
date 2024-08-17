@@ -1,0 +1,42 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-pet
+      author: Darja
+      changes:
+        - createTable:
+            tableName: pet
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: id_code
+                  type: long
+              - column:
+                  name: type
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: fur_color
+                  type: varchar(50)
+              - column:
+                  name: country
+                  type: varchar(50)
+              - column:
+                  name: user_id
+                  type: int
+            foreignKeys:
+              - foreignKeyName: fk_pet_user
+                baseColumnNames: user_id
+                referencedTableName: users
+                referencedColumnNames: id

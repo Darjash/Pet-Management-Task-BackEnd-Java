@@ -1,0 +1,47 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-pets
+      author: Darja
+      changes:
+        - insert:
+            tableName: pet
+            columns:
+              - column:
+                  name: name
+                  value: 'Roy'
+              - column:
+                  name: id_code
+                  valueNumeric: 202211151536
+              - column:
+                  name: type
+                  value: 'Dog'
+              - column:
+                  name: fur_color
+                  value: 'Black'
+              - column:
+                  name: country
+                  value: 'Estonia'
+              - column:
+                  name: user_id
+                  valueNumeric: 1
+        - insert:
+            tableName: pet
+            columns:
+              - column:
+                  name: name
+                  value: 'Maasikas'
+              - column:
+                  name: id_code
+                  valueNumeric: 202211151535
+              - column:
+                  name: type
+                  value: 'Dog'
+              - column:
+                  name: fur_color
+                  value: 'Black'
+              - column:
+                  name: country
+                  value: 'Estonia'
+              - column:
+                  name: user_id
+                  valueNumeric: 2
