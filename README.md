@@ -1,37 +1,32 @@
-TASK
+# Pet Management Application
 
-TODO:
-*	Create a Spring Boot application.
-*	User is displayed a list of pets that the user has entered.
-*	User can add pets.
-*	A pet has a name, an identification code, a type (CAT, DOG, etc) and a fur color.
-*	When a new pet is saved, validate all mandatory fields.
-*	Store all input data to database.
-*	Values of select lists have to be populated with data from database.
+## Task
 
+Create a Spring Boot application where users can manage a list of pets. 
 
-Optional TODO:
-*	User can edit pets.
-* Log in with one of the created user accounts (registration does not have to be implemented). 
-Create user accounts into the database (username and password).
-*	User is not allowed to see other user’s pets. 
-*	User can sort pets by all columns in the table. -in progress
-*	A pet has a country of origin.
-*	Validate form fields both inline and in the back-end. 
+Users can:
+- View a list of treir pets.
+- Add new pets with the following attributes:
+  - Name
+  - Identification code
+  - Type (e.g., CAT, DOG)
+  - Fur color
+  - Country of origin
+- Edit existing pets.
+- Delete existing pets.
+- Log in using pre-created user accounts.
+- Users don't have access to other users' pets).
 
+All input data is validated, and mandatory fields are checked when saving a new pet. 
 
-Technical requirements:
-*	Application has to run with 1 click or command.
-If front- and back-end are in different projects, then 1 click/command per project.
-*	Use Spring Boot.
-*	Embed a H2 database into the application.
-*	Use Angular for front end.
-*	Use Bootstrap for design and styling. Do not use multiple CSS libraries.
-*	Use latest versions of all used technologies.
-*	API has to be RESTful.
+Data is stored in an embedded H2 database, and values for select lists (e.g., pet type) are populated dynamically from the database.
 
+## Technical Requirements
 
-
-
-
+- Use Spring Boot.
+- Embed an H2 database.
+- Use Liquibase as a database migration tool
+- Use Angular for the front end.
+- Use Bootstrap for design and styling (avoid multiple CSS libraries).
+- Ensure the API is RESTful.
 
